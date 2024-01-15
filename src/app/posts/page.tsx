@@ -13,13 +13,7 @@ export default function Posts() {
   return (
     <>
       <Hero>
-        <span className="block text-xl font-bold text-green-300 mb-2">
-        </span>
-        <h1 className="text-8xl font-bold">
-          <span className="special-highlight">P</span>osts
-        </h1>
-        <span className="block text-xl text-right font-bold text-green-300 mt-2">
-        </span>
+        <Hero.Title>Posts</Hero.Title>
       </Hero>
       <div className="max-w-xl py-8 mx-auto">
         {posts.map((post, idx) => (
