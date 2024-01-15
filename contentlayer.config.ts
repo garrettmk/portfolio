@@ -25,6 +25,6 @@ const Post = defineDocumentType(() => ({
 }))
 
 export default makeSource({
-  contentDirPath: 'src/posts',
+  contentDirPath: 'src/app/posts/_content',
   documentTypes: [Post],
 })

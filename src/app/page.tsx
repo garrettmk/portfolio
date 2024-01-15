@@ -1,43 +1,29 @@
-import Link from "next/link";
-import { compareDesc, format, parseISO } from "date-fns";
-import { allPosts, Post } from "contentlayer/generated";
-import { getMDXComponent } from "next-contentlayer/hooks";
-
-function PostCard(post: Post) {
-  const Content = getMDXComponent(post.body.code);
-
-  return (
-    <div className="mb-8">
-      <h2 className="text-xl">
-        <Link
-          href={post.url}
-          className="text-blue-700 hover:text-blue-900"
-          legacyBehavior>
-          {post.title}
-        </Link>
-      </h2>
-      <time dateTime={post.date} className="block mb-2 text-xs text-gray-600">
-        {format(parseISO(post.date), "LLLL d, yyyy")}
-      </time>
-      <div className="text-sm">
-        <Content />
-      </div>
-    </div>
-  );
-}
+import Hero from "@/components/hero";
 
 export default function Home() {
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  );
-
   return (
-    <div className="max-w-xl py-8 mx-auto">
-      <h1 className="mb-8 text-3xl font-bold text-center">Next.js Example</h1>
-
-      {posts.map((post, idx) => (
-        <PostCard key={idx} {...post} />
-      ))}
-    </div>
+    <>
+      <Hero>
+        <div className="h-80 px-8 grid justify-items-start content-center place-content-center">
+          <span className="text-xl font-bold text-green-300 mb-2">
+            hi! my name is
+          </span>
+          <h1 className="text-8xl font-bold">
+            <span className="special-highlight">G</span>arrett{" "}
+            <span className="special-highlight">M</span>yrick
+          </h1>
+          <span className="block text-xl font-bold text-green-300 mt-2 place-self-end">
+            i build things
+          </span>
+        </div>
+      </Hero>
+      <div className="max-w-xl py-8 mx-auto">
+        <p className="text-lg">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed diam at ante vehicula feugiat id vitae urna. Pellentesque
+          nec faucibus urna. Suspendisse eros nunc, gravida in sapien in, ultrices ullamcorper massa. Praesent et pellentesque enim,
+          sed volutpat ante. Quisque eleifend mollis odio, sit amet commodo mauris mattis ac.
+        </p>
+      </div>
+    </>
   );
 }
