@@ -9,12 +9,12 @@ export default function Sidebar(props: SidebarProps) {
   const { className, children, ...divProps } = props;
 
   return (
-    <aside className={clsx("w-80 flex flex-col border-r border-slate-600", className)} {...divProps}>
+    <aside className={clsx("w-80 flex flex-col", className)} {...divProps}>
       <div className="flex flex-col justify-center items-center h-80">
         <BigG />
       </div>
       <nav>
-        <ul className="[&>li]:mb-4">
+        <ul className="[&>li]:mb-4 group">
           {children}
         </ul>
       </nav>

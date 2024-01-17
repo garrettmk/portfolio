@@ -27,7 +27,7 @@ export default function SidebarItem(props: SidebarItemProps) {
     <li
       className={clsx(
         "mb-4 underline decoration-transparent decoration-4 underline-offset-4 text-center",
-        "transition-[text-underline-offset] duration-300 hover:decoration-green-300 hover:underline-offset-8",
+        "transition-all duration-300 group-hover:opacity-50 hover:!opacity-100 hover:decoration-green-300 hover:underline-offset-8",
         isActive && "!decoration-green-300 underline-offset-4",
         className
       )}
