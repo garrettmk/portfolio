@@ -2,7 +2,7 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: `**/posts/_content/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: {
@@ -22,9 +22,47 @@ const Post = defineDocumentType(() => ({
       resolve: (doc) => `/posts/${doc._raw.flattenedPath}`,
     },
   },
+}));
+
+const Project = defineDocumentType(() => ({
+  name: 'Project',
+  filePathPattern: `**/projects/_content/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the project',
+      required: true,
+    },
+    date: {
+      type: 'date',
+      description: 'The date of the project',
+      required: true,
+    },
+    tech: {
+      description: 'The tech used in the project',
+      required: true,
+      type: 'list',
+      of: {
+        type: 'string',
+      },
+    },
+    githubUrl: {
+      type: 'string',
+      description: 'The url of the project github repository',
+    },
+    documentationUrl: {
+      type: 'string',
+      description: 'The url of the project documentation',
+    },
+    demoUrl: {
+      type: 'string',
+      description: 'The url of the project demo',
+    },
+  },
 }))
 
 export default makeSource({
-  contentDirPath: 'src/app/posts/_content',
-  documentTypes: [Post],
+  contentDirPath: 'src',
+  documentTypes: [Post, Project],
 })
