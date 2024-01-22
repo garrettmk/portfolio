@@ -1,3 +1,4 @@
+import isCapital from "@/util/is-capital";
 import { HTMLAttributes } from "react";
 
 export type HeroTitleProps = Omit<HTMLAttributes<HTMLHeadingElement>, 'children'> & {
@@ -15,7 +16,11 @@ export default function HeroTitle(props: HeroTitleProps) {
 
         return (
           <span key={idx}>
-            <span className="special-highlight">{firstLetter}</span>
+            {isCapital(firstLetter) ? (
+              <span className="special-highlight">{firstLetter}</span>
+            ) : (
+              firstLetter
+            )}
             {remainingLetters}
             {idx !== words.length - 1 && ' '}
           </span>
