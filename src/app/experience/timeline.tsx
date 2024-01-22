@@ -138,26 +138,35 @@ export function TimelineDuration(props: TimelineDurationProps) {
   return (
     <li
       className={clsx(
-        // Used as selectors by other components
-        'timeline-duration group/timeline-item',
-        'relative px-6 py-16 text-slate-400 border-green-300 rounded-r-xl',
-        emphasis ? 'border-l-4 translate-x-[-2px]' : 'border-l',
-        quiet ? 'border-dotted' : '',
+        'relative py-6 text-slate-400',
         'transition-all duration-300 ease-in-out',
-
-        // When the timeline is hovered, fade all durations
-        'group-hover/timeline:[filter:opacity(.5)]',
-
-        // If this duration is hovered, highlight it
-        'hover:![filter:opacity(1)] hover:py-24',
-        'hover:backdrop-brightness-[.85] hover:backdrop-blur-[2px]',
-        '[&+li.timeline-dot]:hover:!opacity-100',
+        'timeline-duration group/timeline-item',    // Used as selectors by other components
+        'hover:py-12',                              // Expand a bit when hovered
+        '[&+li.timeline-dot]:hover:!opacity-100',   // If followed by a dot, highlight the dot when hovered
         
         className
       )}
       {...divProps}
     >
-      {children}
+      <div className={clsx(
+        'absolute w-4 top-0 h-full border-green-300',
+        emphasis ? 'border-l-4 left-[-2px]' : 'border-l left-0',
+        quiet ? 'border-dotted' : '',
+        'transition-all duration-300 ease-in-out',
+        'group-hover/timeline:opacity-50 group-hover/timeline-item:!opacity-100'
+      )}/>
+      <div className={clsx(
+        emphasis ? 'ml-[2px]' : 'ml-[1px]',
+        'px-6 py-6 border-r border-t border-b border-transparent rounded-r-xl',
+        'transition-all duration-300 ease-in-out',
+        'group-hover/timeline:[filter:opacity(.5)]', 
+        'group-hover/timeline-item:![filter:opacity(1)]',
+        'group-hover/timeline-item:backdrop-brightness-[.85]', 
+        'group-hover/timeline-item:backdrop-blur-[2px]',
+        'group-hover/timeline-item:border-slate-800',
+      )}>
+        {children}
+      </div>
     </li>
   );
 }

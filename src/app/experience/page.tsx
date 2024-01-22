@@ -7,7 +7,7 @@ export default function Experience() {
       <Hero>
         <Hero.Title>Experience</Hero.Title>
       </Hero>
-      <div className="max-w-xl py-8 mx-auto">
+      <div className="max-w-xl py-8 mx-auto min-h-[1500px]">
         <Timeline>
           <Timeline.Dot open>
             Present
