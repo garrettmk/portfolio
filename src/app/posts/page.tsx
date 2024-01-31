@@ -1,7 +1,6 @@
 import Hero from "@/components/hero";
 import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
-import { PostCard } from "./post-card";
 import { PostList } from "./post-list";
 
 
