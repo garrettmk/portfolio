@@ -5,13 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { HTMLAttributes, useMemo } from "react";
 
-export type SidebarItemProps = HTMLAttributes<HTMLLIElement> & {
+export type SidebarMenuItemProps = HTMLAttributes<HTMLLIElement> & {
   href: string;
   active?: boolean;
   exact?: boolean;
 };
 
-export default function SidebarItem(props: SidebarItemProps) {
+export default function SidebarMenuItem(props: SidebarMenuItemProps) {
   const { className, href, children, active, exact, ...liProps } = props;
   const pathname = usePathname();
 

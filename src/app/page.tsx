@@ -1,4 +1,5 @@
 import Hero from "@/components/hero";
+import PanelList from "@/components/panel-list";
 
 export default function Home() {
   return (
@@ -16,6 +17,17 @@ export default function Home() {
           ullamcorper massa. Praesent et pellentesque enim, sed volutpat ante.
           Quisque eleifend mollis odio, sit amet commodo mauris mattis ac.
         </p>
+        <PanelList className="mt-12">
+          <PanelList.Item>
+            First item
+          </PanelList.Item>
+          <PanelList.Item>
+            Second item
+          </PanelList.Item>
+          <PanelList.Item>
+            Third item
+          </PanelList.Item>
+        </PanelList>
       </div>
     </>
   );

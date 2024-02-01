@@ -3,6 +3,7 @@ import { Jost } from 'next/font/google'
 import './globals.css'
 import clsx from 'clsx'
 import Sidebar from '@/components/sidebar'
+import { Footer } from '@/components/footer'
 
 const jost = Jost({ subsets: ['latin'] })
 
@@ -19,15 +20,26 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-screen">
       <body className={clsx(jost.className, 'min-h-screen flex bg-slate-900 text-slate-50')}>
-        <Sidebar className="backdrop-blur-[2px] backdrop-brightness-[.85] border-r border-slate-800 sticky top-0 h-screen self-start">
-          <Sidebar.Item href="/" exact>About</Sidebar.Item>
-          <Sidebar.Item href="/experience">Experience</Sidebar.Item>
-          <Sidebar.Item href="/projects">Projects</Sidebar.Item>
-          <Sidebar.Item href="/posts">Blog</Sidebar.Item>
-          <Sidebar.Item href="/contact">Contact</Sidebar.Item>
+        <Sidebar className="sticky top-0 h-screen self-start">
+          <Sidebar.Hero>
+            GM
+          </Sidebar.Hero>
+
+          <Sidebar.Menu>
+            <Sidebar.Menu.Item href="/" exact>About</Sidebar.Menu.Item>
+            <Sidebar.Menu.Item href="/experience">Experience</Sidebar.Menu.Item>
+            <Sidebar.Menu.Item href="/projects">Projects</Sidebar.Menu.Item>
+            <Sidebar.Menu.Item href="/posts">Blog</Sidebar.Menu.Item>
+            <Sidebar.Menu.Item href="/contact">Contact</Sidebar.Menu.Item>
+          </Sidebar.Menu>
+
+          <Sidebar.Footer className="text-green-300">
+            Surprise me!
+          </Sidebar.Footer>
         </Sidebar>
-        <main className="grow shrink basis-full">
+        <main className="grow shrink basis-full flex flex-col">
           {children}
+          <Footer className="mt-auto"/>
         </main>
       </body>
     </html>
