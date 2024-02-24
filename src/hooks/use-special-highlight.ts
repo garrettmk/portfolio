@@ -24,6 +24,8 @@ export default function useSpecialHighlight(element: React.RefObject<HTMLElement
   }, []);
   
   // Calculate the transform and filter CSS properties based on the relative position
+  const textShadow = `2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000`;
+
   const transform = useMemo(() => {
     const maxDistance = 4;
     const translateX = (relativePosition?.x ?? 0) * maxDistance + 'px';
@@ -43,5 +45,5 @@ export default function useSpecialHighlight(element: React.RefObject<HTMLElement
   }, [relativePosition]);
   
   // Return the transform and filter as CSS style object
-  return { transform, filter };
+  return { textShadow, transform, filter };
 }

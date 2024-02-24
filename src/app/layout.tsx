@@ -20,23 +20,19 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-screen">
       <body className={clsx(jost.className, 'min-h-screen flex bg-slate-900 text-slate-50')}>
-        <Sidebar className="sticky top-0 h-screen self-start">
-          <Sidebar.Hero>
-            GM
-          </Sidebar.Hero>
+          <Sidebar className="absolute top-[50%] left-[20%] translate-x-[-50%] translate-y-[-50%]">
+            <Sidebar.Menu>
+              <Sidebar.Menu.Item href="/" exact>About</Sidebar.Menu.Item>
+              <Sidebar.Menu.Item href="/experience">Experience</Sidebar.Menu.Item>
+              <Sidebar.Menu.Item href="/projects">Projects</Sidebar.Menu.Item>
+              <Sidebar.Menu.Item href="/posts">Blog</Sidebar.Menu.Item>
+              <Sidebar.Menu.Item href="/contact">Contact</Sidebar.Menu.Item>
+            </Sidebar.Menu>
 
-          <Sidebar.Menu>
-            <Sidebar.Menu.Item href="/" exact>About</Sidebar.Menu.Item>
-            <Sidebar.Menu.Item href="/experience">Experience</Sidebar.Menu.Item>
-            <Sidebar.Menu.Item href="/projects">Projects</Sidebar.Menu.Item>
-            <Sidebar.Menu.Item href="/posts">Blog</Sidebar.Menu.Item>
-            <Sidebar.Menu.Item href="/contact">Contact</Sidebar.Menu.Item>
-          </Sidebar.Menu>
-
-          <Sidebar.Footer className="text-green-300">
-            Surprise me!
-          </Sidebar.Footer>
-        </Sidebar>
+            <Sidebar.Footer className="text-green-300">
+              Surprise me!
+            </Sidebar.Footer>
+          </Sidebar>
         <main className="grow shrink basis-full flex flex-col">
           {children}
           <Footer className="mt-auto"/>

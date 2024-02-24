@@ -3,6 +3,7 @@ import { HTMLAttributes } from "react";
 import SidebarHero, { SidebarHeroProps } from "./sidebar-hero";
 import SidebarMenu, { SidebarMenuProps } from "./sidebar-menu";
 import SidebarFooter, { SidebarFooterProps } from "./sidebar-footer";
+import { Panel } from "../panel";
 
 export type SidebarProps = HTMLAttributes<HTMLDivElement>;
 
@@ -10,19 +11,17 @@ export default function Sidebar(props: SidebarProps) {
   const { className, children, ...divProps } = props;
 
   return (
-    <aside 
+    <Panel 
       className={clsx(
-        "w-80 flex flex-col", 
-        "backdrop-blur-[2px] backdrop-brightness-[.85] border-r border-slate-800",
+        "flex flex-col p-12", 
         className
       )}
       {...divProps}
     >
       {children}
-    </aside>
+    </Panel>
   );
 }
-
 Sidebar.Hero = SidebarHero;
 Sidebar.Menu = SidebarMenu;
 Sidebar.Footer = SidebarFooter;

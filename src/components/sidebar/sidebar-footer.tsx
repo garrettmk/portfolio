@@ -9,7 +9,7 @@ export default function SidebarFooter(props: SidebarFooterProps) {
   return (
     <div
       className={clsx(
-        "self-center mt-auto mb-12",
+        "mt-8",
         className
       )}
     >
