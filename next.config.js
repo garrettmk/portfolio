@@ -5,7 +5,8 @@ const nextConfig = {
   output: 'export',
   basePath: '/portfolio',
   images: {
-    unoptimized: true
+    unoptimized: true,
+  },
 };
 
 module.exports = withContentlayer(nextConfig);
