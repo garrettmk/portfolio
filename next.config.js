@@ -4,6 +4,8 @@ const { withContentlayer } = require("next-contentlayer");
 const nextConfig = {
   output: 'export',
   basePath: '/portfolio',
+  images: {
+    unoptimized: true
 };
 
 module.exports = withContentlayer(nextConfig);
