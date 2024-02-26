@@ -1,4 +1,4 @@
-import Hero from "@/components/hero";
+import { Hero } from "@/components/hero";
 import { allProjects } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import { ProjectList } from "./project-list";

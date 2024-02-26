@@ -1,25 +1,24 @@
 import isCapital from "@/util/is-capital";
-import { HTMLAttributes } from "react";
-import { HeroSpecialText } from "./hero-special-text";
 import clsx from "clsx";
+import { HTMLAttributes } from "react";
 
-export type HeroTitleProps = Omit<HTMLAttributes<HTMLHeadingElement>, 'children'> & {
-  children: string;
-}
+export type SectionHeaderTitleProps = Omit<HTMLAttributes<HTMLHeadingElement>, 'children'> & {
+  children?: string;
+};
 
-export default function HeroTitle(props: HeroTitleProps) {
+export function SectionHeaderTitle(props: SectionHeaderTitleProps) {
   const { children, className, ...headingProps } = props;
-  const words = children.split(' ');
+  const words = children?.split(' ') ?? [];
 
   return (
-    <h1 className={clsx("text-center text-8xl font-bold", className)} {...headingProps}>
+    <h1 className={clsx("text-6xl font-bold", className)} {...headingProps}>
       {words.map((word, idx) => {
         const [firstLetter, ...remainingLetters] = word;
 
         return (
           <span key={idx}>
             {isCapital(firstLetter) ? (
-              <HeroSpecialText>{firstLetter}</HeroSpecialText>
+              <span className="special-highlight">{firstLetter}</span>
             ) : (
               firstLetter
             )}

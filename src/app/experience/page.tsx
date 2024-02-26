@@ -1,4 +1,4 @@
-import Hero from "@/components/hero";
+import { Hero } from "@/components/hero";
 import Timeline from "./timeline";
 
 export default function Experience() {
