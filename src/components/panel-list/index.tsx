@@ -9,8 +9,9 @@ export default function PanelList(props: PanelListProps) {
   return (
     <ul
       className={clsx(
+        "-m-12",
         "group/panel-list",
-        "relative flex flex-col space-y-6",
+        "relative flex flex-col",
         "transition-all duration-300 ease-in-out",
         className
       )}

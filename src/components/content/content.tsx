@@ -9,7 +9,8 @@ export function Content(props: ContentProps) {
   return (
     <article
       className={clsx(
-        "max-w-4xl py-12 md:py-24 px-16 md:px-24 mx-auto",
+        "max-w-2xl mx-auto",
+        "my-24",
         className
       )}
       {...divProps}

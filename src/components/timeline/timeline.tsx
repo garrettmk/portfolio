@@ -99,10 +99,11 @@ export function TimelineDurationSubtitle(props: TimelineDurationSubtitleProps) {
  */
 export type TimelineDurationBodyProps = HTMLAttributes<HTMLDivElement> & {
   quiet?: boolean;
+  open?: boolean;
 };
 
 export function TimelineDurationBody(props: TimelineDurationBodyProps) {
-  const { quiet, className, children, ...divProps } = props;
+  const { open, quiet, className, children, ...divProps } = props;
 
   return (
     <div
@@ -113,6 +114,7 @@ export function TimelineDurationBody(props: TimelineDurationBodyProps) {
 
         // When the timeline duration is hovered, expand and become opaque
         'group-hover/timeline-item:max-h-[100px] group-hover/timeline-item:opacity-100 group-hover/timeline-item:mt-4',
+        open && 'max-h-[100px] opacity-100 mt-4',
         className
       )}
       {...divProps}
@@ -130,10 +132,11 @@ export function TimelineDurationBody(props: TimelineDurationBodyProps) {
 export type TimelineDurationProps = HTMLAttributes<HTMLLIElement> & {
   emphasis?: boolean;
   quiet?: boolean;
+  open?: boolean;
 };
 
 export function TimelineDuration(props: TimelineDurationProps) {
-  const { quiet, className, emphasis, children, ...divProps } = props;
+  const { open, quiet, className, emphasis, children, ...divProps } = props;
 
   return (
     <li
@@ -143,7 +146,7 @@ export function TimelineDuration(props: TimelineDurationProps) {
         'timeline-duration group/timeline-item',    // Used as selectors by other components
         'hover:py-12',                              // Expand a bit when hovered
         '[&+li.timeline-dot]:hover:!opacity-100',   // If followed by a dot, highlight the dot when hovered
-        
+        open && 'py-12',
         className
       )}
       {...divProps}
@@ -153,7 +156,7 @@ export function TimelineDuration(props: TimelineDurationProps) {
         emphasis ? 'border-l-4 left-[-2px]' : 'border-l left-0',
         quiet ? 'border-dotted' : '',
         'transition-all duration-300 ease-in-out',
-        'group-hover/timeline:opacity-50 group-hover/timeline-item:!opacity-100'
+        'group-hover/timeline:opacity-50 group-hover/timeline-item:!opacity-100',
       )}/>
       <div className={clsx(
         emphasis ? 'ml-[2px]' : 'ml-[1px]',
@@ -164,6 +167,7 @@ export function TimelineDuration(props: TimelineDurationProps) {
         'group-hover/timeline-item:backdrop-brightness-[.85]', 
         'group-hover/timeline-item:backdrop-blur-[2px]',
         'group-hover/timeline-item:border-slate-800',
+        open && 'backdrop-brightness-[.85] backdrop-blur-[2px] !border-slate-800 border-t border-r border-b rounded-r-xl',
       )}>
         {children}
       </div>

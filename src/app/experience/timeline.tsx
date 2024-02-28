@@ -99,10 +99,11 @@ export function TimelineDurationSubtitle(props: TimelineDurationSubtitleProps) {
  */
 export type TimelineDurationBodyProps = HTMLAttributes<HTMLDivElement> & {
   quiet?: boolean;
+  open?: boolean;
 };
 
 export function TimelineDurationBody(props: TimelineDurationBodyProps) {
-  const { quiet, className, children, ...divProps } = props;
+  const { open, quiet, className, children, ...divProps } = props;
 
   return (
     <div
@@ -112,6 +113,7 @@ export function TimelineDurationBody(props: TimelineDurationBodyProps) {
         'transition-all duration-300 ease-in-out',
 
         // When the timeline duration is hovered, expand and become opaque
+        open && 'max-h-[100px] opacity-100 mt-4',
         'group-hover/timeline-item:max-h-[100px] group-hover/timeline-item:opacity-100 group-hover/timeline-item:mt-4',
         className
       )}
