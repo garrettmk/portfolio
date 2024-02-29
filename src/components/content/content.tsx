@@ -9,7 +9,7 @@ export function Content(props: ContentProps) {
   return (
     <article
       className={clsx(
-        "max-w-2xl mx-auto",
+        "max-w-2xl mx-12 md:mx-auto",
         "my-24",
         className
       )}

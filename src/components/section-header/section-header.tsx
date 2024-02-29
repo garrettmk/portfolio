@@ -20,7 +20,7 @@ export function SectionHeader(props: SectionHeaderProps) {
       {...divProps}
     >
       <div className={clsx(
-        "grow shrink",
+        "grow shrink min-w-12",
         "flex justify-end",
       )}>
         <div className={clsx(
@@ -28,7 +28,7 @@ export function SectionHeader(props: SectionHeaderProps) {
           "backdrop-blur-[2px] backdrop-brightness-[.85]",
           orientation === 'left' 
             ? "basis-full"
-            : "basis-1/2 border-l rounded-l-xl",
+            : "basis-full lg:basis-1/2 lg:border-l lg:rounded-l-xl",
         )}/>
       </div>
       <div className={clsx(
@@ -42,14 +42,14 @@ export function SectionHeader(props: SectionHeaderProps) {
         {children}
       </div>
       <div className={clsx(
-        "grow shrink",
+        "grow shrink min-w-12",
         "flex justify-start",
       )}>
         <div className={clsx(
           "border-slate-800 border-y",
           "backdrop-blur-[2px] backdrop-brightness-[.85]",
           orientation === 'left' 
-            ? "basis-1/2 border-r rounded-r-xl"
+            ? "basis-full lg:basis-1/2 lg:border-r lg:rounded-r-xl"
             : "basis-full",
         )}/>
       </div>
