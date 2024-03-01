@@ -1,7 +1,7 @@
 import { Content } from "@/components/content";
 import { Hero } from "@/components/hero";
-import PanelList from "@/components/panel-list";
-import { ProjectList } from "@/components/project-list";
+import { PanelList } from "@/components/panel-list";
+import { Project, ProjectRoot } from "@/components/project";
 import { SectionHeader } from "@/components/section-header";
 import { Timeline } from "@/components/timeline";
 import { CheckBadgeIcon } from "@heroicons/react/16/solid";
@@ -12,7 +12,7 @@ import Link from "next/link";
 export default function Home() {
   const projects = allProjects.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
-  );
+  ).slice(0, 3);
 
   return (
     <main>
@@ -21,6 +21,15 @@ export default function Home() {
         <Hero.Title>Garrett Myrick</Hero.Title>
         <Hero.Subtitle className="text-right">i build things</Hero.Subtitle>
       </Hero>
+
+      <PanelList className="items-center">
+        {projects.map(project=> (
+          <PanelList.Item key={project._id} className="p-12">
+            <Project className="max-w-2xl" project={project} />
+          </PanelList.Item>
+        ))}
+      </PanelList>
+
       <Content>
         <p className="text-lg">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed
@@ -39,10 +48,17 @@ export default function Home() {
           Projects
         </SectionHeader.Title>
       </SectionHeader>
-      <Content>
-        <ProjectList projects={projects} />
+      {/* <Content> */}
+        {/* <ProjectList className="mt-12">
+          {projects.map((project, index) => (
+            <ProjectList.Item
+              key={index}
+              project={project}
+            />
+          ))}
+        </ProjectList> */}
         <Link className="block mt-24 font-bold text-lg underline text-green-300" href="/projects">All Projects...</Link>
-      </Content>
+      {/* </Content> */}
 
       <SectionHeader orientation="left" className="my-12">
         <SectionHeader.Subtitle>

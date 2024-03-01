@@ -1,4 +1,4 @@
-import PanelList, { PanelListItemProps, PanelListProps } from '@/components/panel-list';
+import { PanelList, PanelListItemProps, PanelListProps } from '@/components/panel-list';
 import { ArrowTopRightOnSquareIcon as NewTabIcon } from "@heroicons/react/16/solid";
 import clsx from 'clsx';
 import { Project } from 'contentlayer/generated';

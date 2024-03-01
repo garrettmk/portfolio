@@ -1,4 +1,4 @@
-import PanelList, { PanelListItemProps, PanelListProps } from '@/components/panel-list';
+import { PanelList, PanelListItemProps, PanelListProps } from '@/components/panel-list';
 import { ArrowTopRightOnSquareIcon as NewTabIcon } from "@heroicons/react/16/solid";
 import clsx from 'clsx';
 import { Project } from 'contentlayer/generated';
@@ -7,13 +7,11 @@ import Link from 'next/link';
 
 
 
-export type ProjectListProps = PanelListProps & {
-  projects: Project[]
-}
+export type ProjectListProps = PanelListProps;
 
 
 export function ProjectList(props: ProjectListProps) {
-  const { className, projects, ...ulProps } = props;
+  const { className, children, ...ulProps } = props;
 
   return (
     <PanelList
@@ -23,12 +21,7 @@ export function ProjectList(props: ProjectListProps) {
       )}
       {...ulProps}
     >
-      {projects.map((project, idx) => (
-        <ProjectListItem
-          key={idx}
-          project={project}
-        />
-      ))}
+      {children}
     </PanelList>
   );
 }
