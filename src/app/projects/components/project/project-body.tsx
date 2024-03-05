@@ -1,17 +1,18 @@
 import clsx from "clsx";
 import { HTMLAttributes } from "react";
 
-export type SidebarFooterProps = HTMLAttributes<HTMLDivElement>;
+export type ProjectBodyProps = HTMLAttributes<HTMLHeadingElement>;
 
-export default function SidebarFooter(props: SidebarFooterProps) {
+export function ProjectBody(props: ProjectBodyProps) {
   const { className, children, ...divProps } = props;
 
   return (
     <div
       className={clsx(
-        "mt-8",
+        "text-md mt-8",
         className
       )}
+      {...divProps}
     >
       {children}
     </div>

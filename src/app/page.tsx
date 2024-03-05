@@ -1,34 +1,90 @@
-import Hero from "@/components/hero";
-import PanelList from "@/components/panel-list";
+import { Project } from "@/app/projects/components/project";
+import { Hero } from "@/components/hero";
+import { Page } from "@/components/page";
+import { PanelList } from "@/components/panel-list";
+import Link from "next/link";
+import { getAllMetas } from "./projects/lib";
 
-export default function Home() {
+export default async function Home() {
+  const { data: projects } = await getAllMetas({ limit: 3 });
+
   return (
-    <>
+    <Page>
       <Hero>
         <Hero.Subtitle>hi! my name is</Hero.Subtitle>
         <Hero.Title>Garrett Myrick</Hero.Title>
         <Hero.Subtitle className="text-right">i build things</Hero.Subtitle>
       </Hero>
-      <div className="max-w-xl py-8 mx-auto">
-        <p className="text-lg">
+
+      <Page.Content>
+        <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed
           diam at ante vehicula feugiat id vitae urna. Pellentesque nec faucibus
           urna. Suspendisse eros nunc, gravida in sapien in, ultrices
           ullamcorper massa. Praesent et pellentesque enim, sed volutpat ante.
           Quisque eleifend mollis odio, sit amet commodo mauris mattis ac.
         </p>
-        <PanelList className="mt-12">
-          <PanelList.Item>
-            First item
-          </PanelList.Item>
-          <PanelList.Item>
-            Second item
-          </PanelList.Item>
-          <PanelList.Item>
-            Third item
-          </PanelList.Item>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed
+          diam at ante vehicula feugiat id vitae urna. Pellentesque nec faucibus
+          urna. Suspendisse eros nunc, gravida in sapien in, ultrices
+          ullamcorper massa. Praesent et pellentesque enim, sed volutpat ante.
+          Quisque eleifend mollis odio, sit amet commodo mauris mattis ac.
+        </p>
+      </Page.Content>
+
+      <Page.Section>
+        <Page.Section.Subtitle>
+          check out my
+        </Page.Section.Subtitle>
+        <Page.Section.Title>
+          Projects
+        </Page.Section.Title>
+      </Page.Section>
+      
+      <Page.Content>
+        <PanelList className="-m-12 space-y-12">
+          {projects.map(project => (
+            <PanelList.Item 
+              key={project.slug}
+              className="p-12"
+            >
+              <Project project={project} />
+            </PanelList.Item>
+          ))}
         </PanelList>
-      </div>
-    </>
+        <Link className="block pt-12 font-bold text-lg underline text-green-300" href="/projects">All Projects...</Link>
+      </Page.Content>
+
+      <Page.Section orientation="left">
+        <Page.Section.Subtitle>
+          read some
+        </Page.Section.Subtitle>
+        <Page.Section.Title>
+          Posts
+        </Page.Section.Title>
+      </Page.Section>
+      
+      <Page.Content>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed
+        diam at ante vehicula feugiat id vitae urna. Pellentesque nec faucibus
+        urna. Suspendisse eros nunc, gravida in sapien in, ultrices
+        ullamcorper massa. Praesent et pellentesque enim, sed volutpat ante.
+        Quisque eleifend mollis odio, sit amet commodo mauris mattis ac.
+      </Page.Content>
+
+      <Page.Section>
+        <Page.Section.Subtitle>
+          how to
+        </Page.Section.Subtitle>
+        <Page.Section.Title>
+          Contact Me
+        </Page.Section.Title>
+      </Page.Section>
+      
+      <Page.Content as='p'>
+        This is coming soon!
+      </Page.Content>
+    </Page>
   );
 }
