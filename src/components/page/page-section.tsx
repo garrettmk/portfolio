@@ -1,26 +1,25 @@
 import clsx from "clsx";
 import { HTMLAttributes } from "react";
-import { SectionHeaderTitle } from './section-header-title';
-import { SectionHeaderSubtitle } from "./section-header-subtitle";
+import { PageSectionSubtitle } from "./page-section-subtitle";
+import { PageSectionTitle } from "./page-section-title";
 
-export type SectionHeaderProps = HTMLAttributes<HTMLDivElement> & {
+export type PageSectionProps = HTMLAttributes<HTMLDivElement> & {
   orientation?: "left" | "right";
 };
 
-export function SectionHeader(props: SectionHeaderProps) {
+export function PageSection(props: PageSectionProps) {
   const { className, children, orientation, ...divProps } = props;
 
   return (
     <header
       className={clsx(
-        "flex flex-row", 
-        // orientation === "left" ? "justify-start" : "justify-end",
+        "flex flex-row my-12", 
         className
       )}
       {...divProps}
     >
       <div className={clsx(
-        "grow shrink min-w-12",
+        "grow shrink min-w-24",
         "flex justify-end",
       )}>
         <div className={clsx(
@@ -42,7 +41,7 @@ export function SectionHeader(props: SectionHeaderProps) {
         {children}
       </div>
       <div className={clsx(
-        "grow shrink min-w-12",
+        "grow shrink min-w-24",
         "flex justify-start",
       )}>
         <div className={clsx(
@@ -57,5 +56,5 @@ export function SectionHeader(props: SectionHeaderProps) {
   );
 }
 
-SectionHeader.Title = SectionHeaderTitle;
-SectionHeader.Subtitle = SectionHeaderSubtitle;
+PageSection.Title = PageSectionTitle;
+PageSection.Subtitle = PageSectionSubtitle;

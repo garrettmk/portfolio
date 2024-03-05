@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import { HTMLAttributes } from "react";
 
-export type SectionHeaderSubtitleProps = HTMLAttributes<HTMLHeadingElement>;
+export type PageSectionSubtitleProps = HTMLAttributes<HTMLHeadingElement>;
 
-export function SectionHeaderSubtitle(props: SectionHeaderSubtitleProps) {
+export function PageSectionSubtitle(props: PageSectionSubtitleProps) {
   const { className, ...headingProps } = props;
 
   return (

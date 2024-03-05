@@ -6,6 +6,7 @@ import { HeaderNavItem } from "./header-nav-item";
 import { useWindowScroll } from "@/hooks/use-window-scroll";
 import { MenuIcon } from "../icons/menu";
 import { HeaderNavMenuButton } from "./header-nav-menu-button";
+import Link from "next/link";
 
 export type HeaderProps = HTMLAttributes<HTMLDivElement>;
 
@@ -19,7 +20,7 @@ export function Header(props: HeaderProps) {
     <header
       className={clsx(
         "xl:px-48 md:px-24 sm: px-8 border-b text-slate-50",
-        "transition-all duration-300 ease-in-out",
+        "transition-all duration-150 ease-in-out",
         "flex items-center justify-between items-center",
         isExpanded ? "h-screen" : "h-16",
         hasScrolled ? "backdrop-blur-[4px] backdrop-brightness-[.65]" : "backdrop-blur-[2px] backdrop-brightness-[.85]",
@@ -28,7 +29,9 @@ export function Header(props: HeaderProps) {
       )} 
       {...divProps}
     >
-      <h1 className="text-3xl font-bold text-green-300">GM</h1>
+      <Link href="/">
+        <h1 className="text-3xl font-bold text-green-300">GM</h1>
+      </Link>
       <nav className={clsx(
         "transition-all duration-300 ease-in-out",
         isExpanded ? "block" : "hidden md:block"

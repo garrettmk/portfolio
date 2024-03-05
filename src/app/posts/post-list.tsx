@@ -1,11 +1,9 @@
-import PanelList, { PanelListItemProps, PanelListProps } from "@/components/panel-list";
-import { Post } from "contentlayer/generated";
+import { PanelList, PanelListItemProps, PanelListProps } from "@/components/panel-list";
 import { format, parseISO } from "date-fns";
-import { getMDXComponent } from "next-contentlayer/hooks";
 import Link from "next/link";
 
 export type PostListProps = PanelListProps & {
-  posts: Post[];
+  posts: any[];
 };
 
 export function PostList(props: PostListProps) {
@@ -22,12 +20,11 @@ export function PostList(props: PostListProps) {
 
 
 export type PostListItemProps = PanelListItemProps & {
-  post: Post;
+  post: any;
 };
 
 export function PostListItem(props: PostListItemProps) {
   const { post, ...liProps } = props;
-  const Content = getMDXComponent(post.body.code);
 
   return (
     <PanelList.Item {...liProps}>
@@ -43,7 +40,7 @@ export function PostListItem(props: PostListItemProps) {
         {format(parseISO(post.date), "LLLL d, yyyy")}
       </time>
       <div className="text-md mt-8">
-        <Content />
+        {/* <Content /> */}
       </div>
     </PanelList.Item>
   );

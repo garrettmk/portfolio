@@ -2,11 +2,11 @@ import isCapital from "@/util/is-capital";
 import clsx from "clsx";
 import { HTMLAttributes } from "react";
 
-export type SectionHeaderTitleProps = Omit<HTMLAttributes<HTMLHeadingElement>, 'children'> & {
+export type PageSectionTitleProps = Omit<HTMLAttributes<HTMLHeadingElement>, 'children'> & {
   children?: string;
 };
 
-export function SectionHeaderTitle(props: SectionHeaderTitleProps) {
+export function PageSectionTitle(props: PageSectionTitleProps) {
   const { children, className, ...headingProps } = props;
   const words = children?.split(' ') ?? [];
 
