@@ -18,7 +18,9 @@ export function Hero(props: HeroProps) {
       )} 
       {...divProps}
     >
-      {children}
+      <div className="max-w-2xl mx-12">
+        {children}
+      </div>
     </div>
   );
 }

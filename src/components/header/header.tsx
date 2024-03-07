@@ -39,7 +39,7 @@ export function Header(props: HeaderProps) {
         <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 items-center group/nav-list">
           <HeaderNavItem href="/" exact>About</HeaderNavItem>
           <HeaderNavItem href="/projects">Projects</HeaderNavItem>
-          <HeaderNavItem href="/blog">Blog</HeaderNavItem>
+          <HeaderNavItem href="/posts">Blog</HeaderNavItem>
           <HeaderNavItem href="/contact">Contact</HeaderNavItem>
         </ul>
       </nav>

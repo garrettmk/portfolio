@@ -12,7 +12,7 @@ export default function HeroTitle(props: HeroTitleProps) {
   const words = children.split(' ');
 
   return (
-    <h1 className={clsx("text-center text-8xl font-bold", className)} {...headingProps}>
+    <h1 className={clsx("text-8xl font-bold mb-4 flex flex-row flex-wrap justify-center", className)} {...headingProps}>
       {words.map((word, idx) => {
         const [firstLetter, ...remainingLetters] = word;
 
@@ -24,7 +24,7 @@ export default function HeroTitle(props: HeroTitleProps) {
               firstLetter
             )}
             {remainingLetters}
-            {idx !== words.length - 1 && ' '}
+            {idx !== words.length - 1 && <>&nbsp;</>}
           </span>
         );
       })}

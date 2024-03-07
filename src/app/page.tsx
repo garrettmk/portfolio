@@ -3,10 +3,13 @@ import { Hero } from "@/components/hero";
 import { Page } from "@/components/page";
 import { PanelList } from "@/components/panel-list";
 import Link from "next/link";
-import { getAllMetas } from "./projects/lib";
+import { getAllMetas as getAllProjectMetas } from "./projects/lib";
+import { getAllMetas as getAllPostMetas } from "./posts/lib";
+import { PostList } from "./posts/components/post-list";
 
 export default async function Home() {
-  const { data: projects } = await getAllMetas({ limit: 3 });
+  const { data: projects } = await getAllProjectMetas({ limit: 3 });
+  const { data: posts } = await getAllPostMetas({ limit: 3 });
 
   return (
     <Page>
@@ -66,11 +69,11 @@ export default async function Home() {
       </Page.Section>
       
       <Page.Content>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed
-        diam at ante vehicula feugiat id vitae urna. Pellentesque nec faucibus
-        urna. Suspendisse eros nunc, gravida in sapien in, ultrices
-        ullamcorper massa. Praesent et pellentesque enim, sed volutpat ante.
-        Quisque eleifend mollis odio, sit amet commodo mauris mattis ac.
+        <PostList 
+          className="-m-12 space-y-12"
+          posts={posts}
+        />
+        <Link className="block pt-12 font-bold text-lg underline text-green-300" href="/posts">All Posts...</Link>
       </Page.Content>
 
       <Page.Section>
