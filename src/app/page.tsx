@@ -46,7 +46,7 @@ export default async function Home() {
       </Page.Section>
       
       <Page.Content>
-        <PanelList className="-m-12 space-y-12">
+        <PanelList className="-m-12">
           {projects.map(project => (
             <PanelList.Item 
               key={project.slug}
@@ -70,7 +70,7 @@ export default async function Home() {
       
       <Page.Content>
         <PostList 
-          className="-m-12 space-y-12"
+          className="-m-12"
           posts={posts}
         />
         <Link className="block pt-12 font-bold text-lg underline text-green-300" href="/posts">All Posts...</Link>
