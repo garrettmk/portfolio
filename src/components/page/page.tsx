@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { HTMLAttributes } from "react";
-import { PageParagraph } from "./page-paragraph";
 import { PageContent } from "./page-content";
+import { PageParagraph } from "./page-paragraph";
 import { PageSection } from "./page-section";
 
 export type PageProps = HTMLAttributes<HTMLDivElement>;

@@ -10,6 +10,6 @@ export function PageContent<T extends keyof JSX.IntrinsicElements = 'div'>(props
 
   return (
     // @ts-ignore TS chokes on this
-    <Tag className={clsx("max-w-2xl self-center my-12 mx-24 space-y-12", className)} {...otherProps}/>
+    <Tag className={clsx("max-w-2xl self-center my-12 mx-12 md:mx-24 space-y-12", className)} {...otherProps}/>
   )
 }

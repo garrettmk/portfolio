@@ -11,8 +11,7 @@ export function PanelList(props: PanelListProps) {
     <ul
       className={clsx(
         "group/panel-list",
-        "relative flex flex-col",
-        "transition-all duration-300 ease-in-out",
+        "relative flex flex-col space-y-12",
         className
       )}
       {...ulProps}

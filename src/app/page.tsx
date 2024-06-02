@@ -6,6 +6,8 @@ import Link from "next/link";
 import { getAllMetas as getAllProjectMetas } from "./projects/lib";
 import { getAllMetas as getAllPostMetas } from "./posts/lib";
 import { PostList } from "./posts/components/post-list";
+import { ProjectList } from "./projects/components/project-list";
+import { Panel } from "@/components/panel";
 
 export default async function Home() {
   const { data: projects } = await getAllProjectMetas({ limit: 3 });
@@ -46,16 +48,7 @@ export default async function Home() {
       </Page.Section>
       
       <Page.Content>
-        <PanelList className="-m-12 space-y-12">
-          {projects.map(project => (
-            <PanelList.Item 
-              key={project.slug}
-              className="p-12"
-            >
-              <Project project={project} />
-            </PanelList.Item>
-          ))}
-        </PanelList>
+        <ProjectList projects={projects} />
         <Link className="block pt-12 font-bold text-lg underline text-green-300" href="/projects">All Projects...</Link>
       </Page.Content>
 
@@ -69,10 +62,7 @@ export default async function Home() {
       </Page.Section>
       
       <Page.Content>
-        <PostList 
-          className="-m-12 space-y-12"
-          posts={posts}
-        />
+        <PostList posts={posts}/>
         <Link className="block pt-12 font-bold text-lg underline text-green-300" href="/posts">All Posts...</Link>
       </Page.Content>
 

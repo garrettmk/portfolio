@@ -1,21 +1,24 @@
-import { PanelList, PanelListProps } from "@/components/panel-list";
+import clsx from "clsx";
+import { HTMLAttributes } from "react";
 import { PostMeta } from "../../lib";
 import { Post } from "../post";
 
-export type PostListProps = Omit<PanelListProps, 'children'> & {
+export type PostListProps = HTMLAttributes<HTMLUListElement> & {
   posts: PostMeta[];
 }
 
 export function PostList(props: PostListProps) {
-  const { posts, ...listProps } = props;
+  const { className, posts, ...ulProps } = props;
 
   return (
-    <PanelList {...listProps}>
-      {posts.map((post) => (
-        <PanelList.Item key={post.slug} className="p-12">
-          <Post post={post} />
-        </PanelList.Item>
+    <ul className={clsx("relative flex flex-col space-y-12", className)} {...ulProps}>
+      {posts.map(post => (
+        <Post
+          as='li'
+          key={post.slug}
+          post={post}
+        />
       ))}
-    </PanelList>
+    </ul>
   );
 }
