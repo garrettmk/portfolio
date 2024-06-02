@@ -16,13 +16,18 @@ export function HeaderOverlay(props: HeaderOverlayProps) {
   const { className, isOpen, onIsOpenChange, ...divProps } = props;
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      window.document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "";
+      window.document.body.style.overflow = "";
     }
   });
 
+  if (typeof window === 'undefined') 
+    return null;
+  else
     return createPortal(
       <div
         className={clsx(
@@ -53,6 +58,6 @@ export function HeaderOverlay(props: HeaderOverlayProps) {
           onClick={() => onIsOpenChange?.(!isOpen)}
         />
       </div>,
-      document.body
+      window.document.body
     );
 }
