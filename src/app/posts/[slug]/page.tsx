@@ -4,6 +4,7 @@ import { Page } from "@/components/page";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { getAllContentSlugs, getContent } from "../lib";
+import { Panel } from "@/components/panel";
 
 export async function generateStaticParams() {
   const contentSlugs = getAllContentSlugs();
@@ -32,7 +33,11 @@ export default async function PostPage(args: {
         </Hero.Subtitle>
       </Hero>
       <Page.Content>
-        <MDX code={code}/>
+        <Panel>
+          <Panel.Content>
+            <MDX code={code}/>
+          </Panel.Content>
+        </Panel>
       </Page.Content>
     </Page>
   )

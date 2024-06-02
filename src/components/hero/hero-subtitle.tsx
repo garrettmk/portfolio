@@ -1,14 +1,26 @@
 import clsx from "clsx";
+import Link from "next/link";
 import { HTMLAttributes } from "react";
 
-export type HeroSubtitleProps = HTMLAttributes<HTMLSpanElement>;
+export type HeroSubtitleProps = HTMLAttributes<HTMLHeadingElement> & {
+  href?: string;
+};
 
 export default function HeroSubtitle(props: HeroSubtitleProps) {
-  const { className, children, ...spanProps } = props;
+  const { className, children, href, ...headingProps } = props;
 
-  return (
-    <span className={clsx("block text-xl font-bold text-green-300", className)} {...spanProps}>
+  const subtitle = (
+    <h2 className={clsx("block text-xl font-bold text-green-300", className)} {...headingProps}>
       {children}
-    </span>
+    </h2>
   );
+
+  if (href)
+    return (
+      <Link href={href}>
+        {subtitle}
+      </Link>
+    );
+  else
+    return subtitle;
 }

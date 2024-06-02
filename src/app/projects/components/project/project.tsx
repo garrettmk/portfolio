@@ -1,44 +1,33 @@
-import React from "react";
-import { ProjectRootProps, ProjectRoot } from "./project-root";
-import { ProjectHeader } from "./project-header";
-import { ProjectLinks } from "./project-links";
-import { ProjectBody } from "./project-body";
-import Link from "next/link";
+import { Panel, PanelProps } from "@/components/panel";
 import { ProjectMeta } from "../../lib";
+import Link from "next/link";
 
-export type ProjectProps = Omit<ProjectRootProps, 'children'> & {
+export type ProjectProps<T extends keyof JSX.IntrinsicElements = 'div'> = PanelProps<T> & {
   project: ProjectMeta
 }
 
-export function Project(props: ProjectProps) {
-  const { project, ...rootProps } = props;
+export function Project<T extends keyof JSX.IntrinsicElements>(props: ProjectProps<T>) {
+  const { project, ...panelProps } = props;
 
   return (
-    <ProjectRoot {...rootProps}>
-      <ProjectHeader>
-        <Link href={`/projects/${project.slug}`}>
-          <ProjectHeader.Title>{project.title}</ProjectHeader.Title>
-        </Link>
-        <ProjectHeader.Links>
-          {project.urls.docs && (
-            <ProjectHeader.Links.Link href={project.urls.docs} target='_blank'>Docs</ProjectHeader.Links.Link>
-          )}
-          {project.urls.demo && (
-            <ProjectHeader.Links.Link href={project.urls.demo} target='_blank'>Demo</ProjectHeader.Links.Link>
-          )}
-          {project.urls.source && (
-            <ProjectHeader.Links.Link href={project.urls.source} target='_blank'>Repo</ProjectHeader.Links.Link>
-          )}
-        </ProjectHeader.Links>
-      </ProjectHeader>
-      <ProjectHeader.Tech>
-        {project.tech.map((tech) => (
-          <span key={tech}>{tech}</span>
-        ))}
-      </ProjectHeader.Tech>
-      <ProjectBody className="w-full">
-        {project.excerpt}
-      </ProjectBody>
-    </ProjectRoot>
+    // @ts-ignore TS chokes on this
+    <Panel {...panelProps}>
+      <Link href={`/projects/${project.slug}`}>
+        <Panel.Header>
+          <Panel.Title>
+            {project.title}
+          </Panel.Title>
+          <Panel.Subtitle>
+            {project.tech.join(' | ')}
+          </Panel.Subtitle>
+        </Panel.Header>
+        <Panel.Content>
+          {project.excerpt}
+          <p className="mt-4 text-sm text-green-300 underline decoration-dotted underline-offset-4">
+            Read more...
+          </p>
+        </Panel.Content>
+      </Link>
+    </Panel>
   );
 }

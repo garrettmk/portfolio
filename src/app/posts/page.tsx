@@ -24,7 +24,7 @@ export default async function PostsPage() {
         
         <hr className="border-slate-800"/>
         
-        <PostList className="-m-12 space-y-12" posts={posts} />
+        <PostList posts={posts} />
 
         <hr className="border-slate-800"/>
 

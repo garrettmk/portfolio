@@ -1,8 +1,8 @@
-import { Page } from '@/components/page';
 import { Hero } from "@/components/hero";
-import { PanelList } from "@/components/panel-list";
-import { Project } from "./components/project";
+import { Page } from '@/components/page';
+import { ProjectList } from './components/project-list';
 import { getAllMetas } from "./lib";
+import { Panel } from "@/components/panel";
 
 export default async function ProjectsPage() {
   const { data: projects } = await getAllMetas();
@@ -14,19 +14,14 @@ export default async function ProjectsPage() {
       </Hero>
 
       <Page.Content>
-        <PanelList className="-m-12">
-          {projects.map(project => (
-            <PanelList.Item 
-              key={project.slug}
-              className="p-12"
-            >
-              <Project 
-                className="max-w-2xl"
-                project={project} 
-              />
-            </PanelList.Item>
-          ))}
-        </PanelList>
+        <Page.Paragraph>
+          I am a paragraph.
+        </Page.Paragraph>
+        <Panel>
+          <Panel.Title>Projects</Panel.Title>
+          I am a panel.
+        </Panel>
+        <ProjectList projects={projects} />
       </Page.Content>
     </Page>
   );
