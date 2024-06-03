@@ -9,7 +9,7 @@ export function PanelHeader<T extends keyof JSX.IntrinsicElements = 'div'>(props
   const { as: Tag = 'div', shade, className, ...rest } = props;
 
   const classNames = clsx(
-    "p-12 rounded-t-xl",
+    "p-6 md:p-12 rounded-t-xl",
     !shade && "[&~*]:pt-0",
     shade && "bg-slate-800",
     className

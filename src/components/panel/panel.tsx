@@ -12,7 +12,7 @@ export function Panel<T extends keyof JSX.IntrinsicElements = 'div'>(props: Pane
   const { as: Tag = 'div', className, ...rest } = props;
   
   const classNames = clsx(
-    "-mx-12",
+    "-mx-6 md:-mx-12",
     "border border-slate-800 rounded-xl",
     "backdrop-brightness-[.85] backdrop-blur-[2px]",
     "text-lg",
