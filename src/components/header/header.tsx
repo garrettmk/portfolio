@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from "clsx";
-import { HTMLAttributes, useState } from "react";
+import { HTMLAttributes, useEffect, useState } from "react";
 import { HeaderNavItem } from "./header-nav-item";
 import { useWindowScroll } from "@/hooks/use-window-scroll";
 import { MenuIcon } from "../icons/menu";
@@ -25,7 +25,7 @@ export function Header(props: HeaderProps) {
           "xl:px-48 md:px-24 sm: px-8 border-b text-slate-50",
           "transition-all duration-150 ease-in-out",
           "flex items-center justify-between items-center",
-          hasScrolled ? "backdrop-blur-[4px] backdrop-brightness-[.65]" : "backdrop-blur-[2px] backdrop-brightness-[.85]",
+          hasScrolled ? "backdrop-blur-[8px] backdrop-brightness-[.65]" : "backdrop-blur-[2px] backdrop-brightness-[.85]",
           hasScrolled ? "border-slate-800" : "border-transparent",
           className
         )}
