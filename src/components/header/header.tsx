@@ -1,12 +1,11 @@
 'use client';
 
-import clsx from "clsx";
-import { HTMLAttributes, useEffect, useState } from "react";
-import { HeaderNavItem } from "./header-nav-item";
 import { useWindowScroll } from "@/hooks/use-window-scroll";
-import { MenuIcon } from "../icons/menu";
-import { HeaderNavMenuButton } from "./header-nav-menu-button";
+import clsx from "clsx";
 import Link from "next/link";
+import { HTMLAttributes, useState } from "react";
+import { HeaderNavItem } from "./header-nav-item";
+import { HeaderNavMenuButton } from "./header-nav-menu-button";
 import { HeaderOverlay } from "./header-overlay";
 
 export type HeaderProps = HTMLAttributes<HTMLDivElement>;
@@ -39,7 +38,7 @@ export function Header(props: HeaderProps) {
             <HeaderNavItem href="/" exact>About</HeaderNavItem>
             <HeaderNavItem href="/projects">Projects</HeaderNavItem>
             <HeaderNavItem href="/posts">Blog</HeaderNavItem>
-            <HeaderNavItem href="/contact">Contact</HeaderNavItem>
+            <HeaderNavItem href="/#contact">Contact</HeaderNavItem>
           </ul>
         </nav>
         <HeaderNavMenuButton

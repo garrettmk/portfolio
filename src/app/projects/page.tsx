@@ -2,7 +2,6 @@ import { Hero } from "@/components/hero";
 import { Page } from '@/components/page';
 import { ProjectList } from './components/project-list';
 import { getAllMetas } from "./lib";
-import { Panel } from "@/components/panel";
 
 export default async function ProjectsPage() {
   const { data: projects } = await getAllMetas();

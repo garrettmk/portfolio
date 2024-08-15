@@ -5,6 +5,11 @@ import { PostList } from "./posts/components/post-list";
 import { getAllMetas as getAllPostMetas } from "./posts/lib";
 import { ProjectList } from "./projects/components/project-list";
 import { getAllMetas as getAllProjectMetas } from "./projects/lib";
+import { Panel } from "@/components/panel";
+import { LinkedinIcon } from "@/components/icons/linkedin";
+import { GithubIcon } from "@/components/icons/github";
+import { ExternalLinkIcon } from "@/components/icons/external-link";
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
 
 export default async function Home() {
   const { data: projects } = await getAllProjectMetas({ limit: 3 });
@@ -20,7 +25,7 @@ export default async function Home() {
 
       <Page.Content>
         <Page.Paragraph>
-          <strong>Welcome!</strong> My name is Garrett, and I&apos;m a software engineer based in beautiful Bend, Oregon. I currently work for a large dental company,
+          <strong>Hi!</strong> My name is Garrett, and I&apos;m a software engineer based in beautiful Bend, Oregon. I currently work for a large dental company,
           building analytics software to help dentists run their practices more efficiently. I&apos;m passionate about building software that helps people, and I&apos;m always
           looking for new opportunities to learn and grow as an engineer.
         </Page.Paragraph>
@@ -67,8 +72,28 @@ export default async function Home() {
         </Page.Section.Title>
       </Page.Section>
       
-      <Page.Content as='p'>
-        This is coming soon!
+      <Page.Content className="w-full">
+        <Panel id="contact">
+          <Panel.Content className="flex flex-row items-center justify-center gap-12 underline decoration-dotted underline-offset-4">
+            <a className="flex flex-row items-center gap-3" href="https://www.linkedin.com/in/garrettmk" target="_blank">
+              <LinkedinIcon 
+                className="w-8 h-8 text-green-300"
+              />
+              LinkedIn
+              <ExternalLinkIcon className="w-4 h-4"/>
+            </a>
+            <a className="flex flex-row items-center gap-3" href="https://github.com/garrettmk" target="_blank">
+              <GithubIcon className="w-8 h-8 text-green-300"/>
+              GitHub
+              <ExternalLinkIcon className="w-4 h-4"/>
+            </a>
+            <a className="flex flex-row items-center gap-3" href="mailto:garrett@garrettmyrick.dev" target="_blank">
+              <EnvelopeIcon className="w-8 h-8 text-green-300"/>
+              Email
+              <ExternalLinkIcon className="w-4 h-4"/>
+            </a>
+          </Panel.Content>
+        </Panel>
       </Page.Content>
     </Page>
   );
