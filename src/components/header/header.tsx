@@ -1,12 +1,11 @@
 'use client';
 
+import { useWindowScroll } from "@/hooks/use-window-scroll";
 import clsx from "clsx";
+import Link from "next/link";
 import { HTMLAttributes, useState } from "react";
 import { HeaderNavItem } from "./header-nav-item";
-import { useWindowScroll } from "@/hooks/use-window-scroll";
-import { MenuIcon } from "../icons/menu";
 import { HeaderNavMenuButton } from "./header-nav-menu-button";
-import Link from "next/link";
 import { HeaderOverlay } from "./header-overlay";
 
 export type HeaderProps = HTMLAttributes<HTMLDivElement>;
@@ -25,7 +24,7 @@ export function Header(props: HeaderProps) {
           "xl:px-48 md:px-24 sm: px-8 border-b text-slate-50",
           "transition-all duration-150 ease-in-out",
           "flex items-center justify-between items-center",
-          hasScrolled ? "backdrop-blur-[4px] backdrop-brightness-[.65]" : "backdrop-blur-[2px] backdrop-brightness-[.85]",
+          hasScrolled ? "backdrop-blur-[8px] backdrop-brightness-[.65]" : "backdrop-blur-[2px] backdrop-brightness-[.85]",
           hasScrolled ? "border-slate-800" : "border-transparent",
           className
         )}
@@ -39,7 +38,7 @@ export function Header(props: HeaderProps) {
             <HeaderNavItem href="/" exact>About</HeaderNavItem>
             <HeaderNavItem href="/projects">Projects</HeaderNavItem>
             <HeaderNavItem href="/posts">Blog</HeaderNavItem>
-            <HeaderNavItem href="/contact">Contact</HeaderNavItem>
+            <HeaderNavItem href="/#contact">Contact</HeaderNavItem>
           </ul>
         </nav>
         <HeaderNavMenuButton

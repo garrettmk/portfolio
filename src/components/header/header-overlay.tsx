@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { HTMLAttributes, useEffect } from "react";
+import { HTMLAttributes, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { HeaderNavItem } from "./header-nav-item";
 import { HeaderNavMenuButton } from "./header-nav-menu-button";
@@ -14,20 +14,21 @@ export type HeaderOverlayProps = HTMLAttributes<HTMLDivElement> & {
 
 export function HeaderOverlay(props: HeaderOverlayProps) {
   const { className, isOpen, onIsOpenChange, ...divProps } = props;
+  const portalParent = useRef<HTMLElement | undefined>();
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    portalParent.current = window.document.body;
+  }, []);
 
+  useEffect(() => {
     if (isOpen) {
       window.document.body.style.overflow = "hidden";
     } else {
       window.document.body.style.overflow = "";
     }
-  });
+  }, [isOpen]);
 
-  if (typeof window === 'undefined') 
-    return null;
-  else
+  if (portalParent.current)
     return createPortal(
       <div
         className={clsx(
@@ -58,6 +59,8 @@ export function HeaderOverlay(props: HeaderOverlayProps) {
           onClick={() => onIsOpenChange?.(!isOpen)}
         />
       </div>,
-      window.document.body
+      portalParent.current
     );
+  else
+    return null;
 }

@@ -8,9 +8,7 @@ export function PageParagraph(props: PageParagraphProps) {
 
   return (
     <p 
-      className={clsx(
-        "max-w-2xl m-12 self-center text-lg",
-      )}
+      className={clsx("max-w-2xl my-12 self-center text-lg", className)}
       {...rest}
     />
   );

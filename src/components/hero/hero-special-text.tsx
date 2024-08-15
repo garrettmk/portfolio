@@ -1,5 +1,3 @@
-'use client';
-
 import { HTMLAttributes } from "react";
 
 export type HeroSpecialTextProps = HTMLAttributes<HTMLSpanElement> & {};
