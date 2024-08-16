@@ -14,23 +14,19 @@ export default async function PostsPage() {
       </Hero>
 
       <Page.Content>
-        <p>
+        <Page.Paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed
           diam at ante vehicula feugiat id vitae urna. Pellentesque nec faucibus
           urna. Suspendisse eros nunc, gravida in sapien in, ultrices
           ullamcorper massa. Praesent et pellentesque enim, sed volutpat ante.
           Quisque eleifend mollis odio, sit amet commodo mauris mattis ac.
-        </p>
-        
-        <hr className="border-slate-800"/>
-        
+        </Page.Paragraph>
+                
         <PostList posts={posts} />
 
-        <hr className="border-slate-800"/>
-
-        <p>
+        <Page.Paragraph>
           That&apos;s it, you&apos;ve reached the end. Thanks for reading! Come back soon for new content.
-        </p>
+        </Page.Paragraph>
       </Page.Content>
     </Page>
   );
