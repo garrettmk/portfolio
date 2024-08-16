@@ -8,7 +8,7 @@ export function PanelContent<T extends keyof JSX.IntrinsicElements = 'div'>(prop
   const { as: Tag = 'div', className, ...rest } = props;
 
   const classNames = clsx(
-    "px-12 py-12",
+    "p-6 md:p-12",
     "text-lg",
     className
   );

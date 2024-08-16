@@ -7,6 +7,7 @@ import Link from "next/link";
 import { getAllContentSlugs, getContent } from "../lib";
 import { Panel } from "@/components/panel";
 import { CodeBracketIcon, DocumentTextIcon, RocketLaunchIcon } from "@heroicons/react/24/outline";
+import { ExternalLinkIcon } from "@/components/icons/external-link";
 import "@/styles/highlight-js-styles.css";
 
 export async function generateStaticParams() {
@@ -39,24 +40,32 @@ export default async function ProjectPage(args: {
       </Hero>
       <Page.Content>
         <Panel>
-          <Panel.Header shade className="flex flex-row justify-between items-center">
-            <Panel.Title>Project Links</Panel.Title>
+          <Panel.Header shade className="flex flex-row justify-between items-center gap-4">
+            <Panel.Title className="basis-full">Project Links</Panel.Title>
             <RocketLaunchIcon className="w-12 h-12 text-green-300"/>
+            <DocumentTextIcon className="w-12 h-12 text-green-300"/>
+            <CodeBracketIcon className="w-12 h-12 text-green-300"/>
           </Panel.Header>
-          <Panel.Content className="flex flex-wrap gap-12 justify-center text-green-300 underline decoration-dotted underline-offset-4">
+          <Panel.Content className="flex flex-wrap gap-12 justify-center underline decoration-dotted underline-offset-4">
               {meta.urls.demo && (
-                <Link href={meta.urls.demo} target="_blank">
-                  See the demo <RocketLaunchIcon className="inline-block w-6 h-6 ml-2 mb-1.5"/>
+                <Link href={meta.urls.demo} target="_blank" className="flex flex-row items-center gap-2">
+                  <RocketLaunchIcon className="inline-block w-6 h-6 text-green-300"/>
+                  See the demo
+                  <ExternalLinkIcon className="inline-block w-4 h-4"/>
                 </Link>
               )}
               {meta.urls.docs && (
-                <Link href={meta.urls.docs} target="_blank">
-                  Read the docs <DocumentTextIcon className="inline-block w-6 h-6 ml-2 mb-1.5"/>
+                <Link href={meta.urls.docs} target="_blank" className="flex flex-row items-center gap-2">
+                  <DocumentTextIcon className="inline-block w-6 h-6 text-green-300"/>
+                  Read the docs
+                  <ExternalLinkIcon className="inline-block w-4 h-4"/>
                 </Link>
               )}
               {meta.urls.source && (
-                <Link href={meta.urls.source} target="_blank">
-                  View the source <CodeBracketIcon className="inline-block w-6 h-6 ml-2 mb-1.5"/>
+                <Link href={meta.urls.source} target="_blank" className="flex flex-row items-center gap-2">
+                  <CodeBracketIcon className="inline-block w-6 h-6 text-green-300"/>
+                  View the source
+                  <ExternalLinkIcon className="inline-block w-4 h-4"/>
                 </Link>
               )}
           </Panel.Content>
