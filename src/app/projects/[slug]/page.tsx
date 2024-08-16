@@ -7,6 +7,7 @@ import Link from "next/link";
 import { getAllContentSlugs, getContent } from "../lib";
 import { Panel } from "@/components/panel";
 import { CodeBracketIcon, DocumentTextIcon, RocketLaunchIcon } from "@heroicons/react/24/outline";
+import "@/styles/highlight-js-styles.css";
 
 export async function generateStaticParams() {
   const contentSlugs = getAllContentSlugs();

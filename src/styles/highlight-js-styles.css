@@ -1,0 +1,116 @@
+/*!
+  Theme: Tokyo-night-Dark
+  origin: https://github.com/enkia/tokyo-night-vscode-theme
+  Description: Original highlight.js style
+  Author: (c) Henri Vandersleyen <hvandersleyen@gmail.com>
+  License: see project LICENSE
+  Touched: 2022
+*/
+
+/*  Comment */
+.hljs-meta,
+.hljs-comment,
+.hljs-tag {
+  color: #64748b; /* slate-500 */
+}
+
+/*INFO: This keyword, HTML elements, Regex group symbol, CSS units, Terminal Red */
+.hljs-doctag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-template-tag,
+.hljs-selector-pseudo,
+.hljs-selector-attr,
+.hljs-deletion {
+  color: #fca5a5; /* red-300 */
+}
+
+/*INFO: Number and Boolean constants, Language support constants */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-number,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-link {
+  color: #fdba74; /* orange-300 */
+}
+
+
+/* INFO:  	Function parameters, Regex character sets, Terminal Yellow */
+.hljs-attribute {
+  color: #fef08a; /* yellow-200 */
+}
+
+/* INFO: Language support functions, CSS HTML elements */
+.hljs-selector-tag {
+  color: #2ac3de;
+}
+
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-name,
+.hljs-built_in {
+  color: #86efac; /* green-300 */
+}
+
+/* INFO: Object properties, Regex quantifiers and flags, Markdown headings, Terminal Cyan, Markdown code, Import/export keywords */
+.hljs-title.function_,
+.hljs-title,
+.hljs-subst,
+.hljs-property {
+  color: #fde68a; /* amber-200 */
+}
+
+/* INFO: Strings, CSS class names */
+.hljs-quote,
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #fed7aa; /* orange-200 */
+}
+
+/* INFO:  	Function names, CSS property names, Terminal Blue */
+.hljs-code,
+.hljs-formula,
+.hljs-section {
+  color: #7aa2f7;
+}
+
+.hljs-keyword,
+.hljs-variable.language_ {
+  color: #60a5fa;
+}
+
+/*INFO: Storage Types, Regex symbols and operators, HTML Attributes, Terminal Magenta */
+.hljs-operator,
+.hljs-char.escape_,
+.hljs-attr {
+  color: #bfdbfe;
+}
+
+/* INFO: Variables, Class names, Terminal White */
+.hljs-punctuation {color: #c0caf5}
+
+pre:has(.hljs) {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #1e293b; /* slate-800 */
+}
+
+pre:has(.hljs), .hljs {
+  background: #0f172a; /* slate-900 */
+  color: #cbd5e1; /* slate-300 */
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}

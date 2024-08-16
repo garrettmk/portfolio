@@ -3,6 +3,7 @@ import { compareDesc } from 'date-fns';
 import fs from 'fs';
 import { bundleMDX } from 'mdx-bundler';
 import path from 'path';
+import rehypeHighlight from 'rehype-highlight';
 
 /**
  * Metadata for Project articles
@@ -85,6 +86,13 @@ export async function getContent(slug: string): Promise<ProjectContent> {
   const { code, frontmatter, matter: { excerpt = '' } } = await bundleMDX({
     source: raw,
     mdxOptions(options, frontmatter) {
+      options.remarkPlugins = [...(options.remarkPlugins ?? [])];
+      
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []), 
+        [rehypeHighlight]
+      ];
+      
       return options;
     },
     grayMatterOptions(options) {

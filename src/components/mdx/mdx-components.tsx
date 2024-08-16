@@ -12,5 +12,5 @@ function hr(props: HTMLAttributes<HTMLHRElement>) {
 
 export const mdxComponents = {
   // p,
-  hr
+  hr,
 } as const;
