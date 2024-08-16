@@ -6,6 +6,9 @@ import { HTMLAttributes, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { HeaderNavItem } from "./header-nav-item";
 import { HeaderNavMenuButton } from "./header-nav-menu-button";
+import { LinkedinIcon } from "../icons/linkedin";
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
+import { GithubIcon } from "../icons/github";
 
 export type HeaderOverlayProps = HTMLAttributes<HTMLDivElement> & {
   isOpen: boolean;
@@ -51,7 +54,18 @@ export function HeaderOverlay(props: HeaderOverlayProps) {
             <HeaderNavItem href="/" exact>About</HeaderNavItem>
             <HeaderNavItem href="/projects">Projects</HeaderNavItem>
             <HeaderNavItem href="/posts">Blog</HeaderNavItem>
-            <HeaderNavItem href="/contact">Contact</HeaderNavItem>
+          </ul>
+          <div className="h-[1px] w-full bg-slate-700 my-6"/>
+          <ul className="flex flex-row gap-4 items-center group/nav-list">
+            <HeaderNavItem href="https://www.linkedin.com/in/garrettmk">
+              <LinkedinIcon className="w-6 h-6"/>
+            </HeaderNavItem>
+            <HeaderNavItem href="Github">
+              <GithubIcon className="w-6 h-6"/>
+            </HeaderNavItem>
+            <HeaderNavItem href="mailto:garrett@garrettmyrick.dev">
+              <EnvelopeIcon className="w-6 h-6"/>
+            </HeaderNavItem>
           </ul>
         </nav>
         <HeaderNavMenuButton

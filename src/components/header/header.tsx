@@ -7,6 +7,9 @@ import { HTMLAttributes, useState } from "react";
 import { HeaderNavItem } from "./header-nav-item";
 import { HeaderNavMenuButton } from "./header-nav-menu-button";
 import { HeaderOverlay } from "./header-overlay";
+import { LinkedinIcon } from "../icons/linkedin";
+import { GithubIcon } from "../icons/github";
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
 
 export type HeaderProps = HTMLAttributes<HTMLDivElement>;
 
@@ -33,12 +36,25 @@ export function Header(props: HeaderProps) {
         <Link href="/">
           <h1 className="text-3xl font-bold text-green-300">GM</h1>
         </Link>
-        <nav className="transition-all duration-300 ease-in-out hidden md:block">
-          <ul className="flex flex-row space-x-6 items-center group/nav-list">
+        <nav className="flex flex-row gap-6 transition-all duration-300 ease-in-out hidden md:flex">
+          <ul className="flex flex-row gap-6 items-center group/nav-list">
             <HeaderNavItem href="/" exact>About</HeaderNavItem>
             <HeaderNavItem href="/projects">Projects</HeaderNavItem>
             <HeaderNavItem href="/posts">Blog</HeaderNavItem>
-            <HeaderNavItem href="/#contact">Contact</HeaderNavItem>
+          </ul>
+
+          <div className="w-[1px] bg-slate-700 self-stretch"/>
+          
+          <ul className="flex flex-row gap-6 items-center group/nav-list">
+            <HeaderNavItem href="https://www.linkedin.com/in/garrettmk">
+              <LinkedinIcon className="w-6 h-6"/>
+            </HeaderNavItem>
+            <HeaderNavItem href="https://github.com/garrettmk">
+              <GithubIcon className="w-6 h-6"/>
+            </HeaderNavItem>
+            <HeaderNavItem href="mailto:garrett@garrettmyrick.dev">
+              <EnvelopeIcon className="w-6 h-6"/>
+            </HeaderNavItem>
           </ul>
         </nav>
         <HeaderNavMenuButton
